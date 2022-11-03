@@ -6,7 +6,7 @@ before_install:
   - docker build - devji79/docker-complex -f ./client/Dockerfile.devji79/docker-complex-web ./client
 
 script:
-  - docker run -e CI-true devji79/docker-complex-web npm test
+  - docker run -e CI=true devji79/docker-complex-web-react-test npm test
 
 after_success: 
   - docker build -t devji79/docker-complex-web-client ./client
