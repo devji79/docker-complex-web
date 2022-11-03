@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install: 
-  - docker builder - devji79/docker-complex -f ./client/Dockerfile.devji79/docker-complex-web ./client
+  - docker build - devji79/docker-complex -f ./client/Dockerfile.devji79/docker-complex-web ./client
 
 script:
   - docker run -e CI-true devji79/docker-complex-web npm test
