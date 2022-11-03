@@ -13,3 +13,10 @@ after_success:
   - docker build -t devji79/docker-complex-web-nginx ./nginx
   - docker build -t devji79/docker-complex-web-server ./server
   - docker build -t devji79/docker-complex-web-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to Docker Hub
+  - docker push devji79/docker-complex-web-client
+  - docker push devji79/docker-complex-web-nginx 
+  - docker push devji79/docker-complex-web-server
+  - docker push devji79/docker-complex-web-worker
